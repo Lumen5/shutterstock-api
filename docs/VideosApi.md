@@ -527,8 +527,16 @@ import shutterstock_api
 from shutterstock_api.rest import ApiException
 from pprint import pprint
 
+# Configure HTTP basic authorization: basic
+configuration = shutterstock_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure OAuth2 access token for authorization: customer_accessCode
+configuration = shutterstock_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = shutterstock_api.VideosApi()
+api_instance = shutterstock_api.VideosApi(shutterstock_api.ApiClient(configuration))
 start_date = '2013-10-20' # date | Show videos updated on or after the specified date, in the format YYYY-MM-DD (optional)
 end_date = '2013-10-20' # date | Show videos updated before the specified date, in the format YYYY-MM-DD (optional)
 interval = '1 HOUR' # str | Show videos updated in the specified time period, where the time period is an interval (like SQL INTERVAL) such as 1 DAY, 6 HOUR, or 30 MINUTE; the default is 1 HOUR, which shows videos that were updated in the hour preceding the request (optional) (default to 1 HOUR)
@@ -561,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../README.md#basic), [customer_accessCode](../README.md#customer_accessCode)
 
 ### HTTP request headers
 
