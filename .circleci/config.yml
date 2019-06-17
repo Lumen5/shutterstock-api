@@ -1,0 +1,15 @@
+---
+version: 2
+workflows:
+    version: 2
+    main:
+        jobs:
+            - test_tox
+jobs:
+    test_tox:
+        docker:
+            - image: circleci/python:3.7
+        steps:
+            - checkout
+            - run: sudo pip install tox
+            - run: tox

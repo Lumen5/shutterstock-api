@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_clipbox_items**](VideosApi.md#get_clipbox_items) | **GET** /v2/videos/collections/{id}/items | Get the contents of video collections
 [**get_clipbox_list**](VideosApi.md#get_clipbox_list) | **GET** /v2/videos/collections | List video collections
 [**get_similar_videos**](VideosApi.md#get_similar_videos) | **GET** /v2/videos/{id}/similar | List similar videos
+[**get_updated_videos**](VideosApi.md#get_updated_videos) | **GET** /v2/videos/updated | List updated videos
 [**get_video**](VideosApi.md#get_video) | **GET** /v2/videos/{id} | Get details about videos
 [**get_video_categories**](VideosApi.md#get_video_categories) | **GET** /v2/videos/categories | List video categories
 [**get_video_license_list**](VideosApi.md#get_video_license_list) | **GET** /v2/videos/licenses | List video licenses
@@ -503,6 +504,64 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [basic](../README.md#basic), [customer_accessCode](../README.md#customer_accessCode)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_updated_videos**
+> UpdatedMediaDataList get_updated_videos(start_date=start_date, end_date=end_date, interval=interval, page=page, per_page=per_page, sort=sort)
+
+List updated videos
+
+This endpoint lists videos that have been updated in the specified time period to update content management systems (CMS) or digital asset management (DAM) systems. In most cases, use the `interval` parameter to show videos that were updated recently, but you can also use the `start_date` and `end_date` parameters to specify a range of no more than three days. Do not use the `interval` parameter with either `start_date` or `end_date`.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import shutterstock_api
+from shutterstock_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = shutterstock_api.VideosApi()
+start_date = '2013-10-20' # date | Show videos updated on or after the specified date, in the format YYYY-MM-DD (optional)
+end_date = '2013-10-20' # date | Show videos updated before the specified date, in the format YYYY-MM-DD (optional)
+interval = '1 HOUR' # str | Show videos updated in the specified time period, where the time period is an interval (like SQL INTERVAL) such as 1 DAY, 6 HOUR, or 30 MINUTE; the default is 1 HOUR, which shows videos that were updated in the hour preceding the request (optional) (default to 1 HOUR)
+page = 1 # int | Page number (optional) (default to 1)
+per_page = 100 # int | Number of results per page (optional) (default to 100)
+sort = 'newest' # str | Sort by oldest or newest videos first (optional) (default to newest)
+
+try:
+    # List updated videos
+    api_response = api_instance.get_updated_videos(start_date=start_date, end_date=end_date, interval=interval, page=page, per_page=per_page, sort=sort)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling VideosApi->get_updated_videos: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_date** | **date**| Show videos updated on or after the specified date, in the format YYYY-MM-DD | [optional] 
+ **end_date** | **date**| Show videos updated before the specified date, in the format YYYY-MM-DD | [optional] 
+ **interval** | **str**| Show videos updated in the specified time period, where the time period is an interval (like SQL INTERVAL) such as 1 DAY, 6 HOUR, or 30 MINUTE; the default is 1 HOUR, which shows videos that were updated in the hour preceding the request | [optional] [default to 1 HOUR]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **per_page** | **int**| Number of results per page | [optional] [default to 100]
+ **sort** | **str**| Sort by oldest or newest videos first | [optional] [default to newest]
+
+### Return type
+
+[**UpdatedMediaDataList**](UpdatedMediaDataList.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

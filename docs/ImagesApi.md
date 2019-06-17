@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**get_lightbox_items**](ImagesApi.md#get_lightbox_items) | **GET** /v2/images/collections/{id}/items | Get the contents of image collections
 [**get_lightbox_list**](ImagesApi.md#get_lightbox_list) | **GET** /v2/images/collections | List image collections
 [**get_similar_images**](ImagesApi.md#get_similar_images) | **GET** /v2/images/{id}/similar | List similar images
+[**get_updated_images**](ImagesApi.md#get_updated_images) | **GET** /v2/images/updated | List updated images
 [**license_images**](ImagesApi.md#license_images) | **POST** /v2/images/licenses | License images
 [**rename_lightbox**](ImagesApi.md#rename_lightbox) | **POST** /v2/images/collections/{id} | Rename image collections
 [**search_images**](ImagesApi.md#search_images) | **GET** /v2/images/search | Search for images
@@ -965,6 +966,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ImageSearchResults**](ImageSearchResults.md)
+
+### Authorization
+
+[basic](../README.md#basic), [customer_accessCode](../README.md#customer_accessCode)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_updated_images**
+> UpdatedMediaDataList get_updated_images(type=type, start_date=start_date, end_date=end_date, interval=interval, page=page, per_page=per_page, sort=sort)
+
+List updated images
+
+This endpoint lists images that have been updated in the specified time period to update content management systems (CMS) or digital asset management (DAM) systems. In most cases, use the `interval` parameter to show images that were updated recently, but you can also use the `start_date` and `end_date` parameters to specify a range of no more than three days. Do not use the `interval` parameter with either `start_date` or `end_date`.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import shutterstock_api
+from shutterstock_api.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basic
+configuration = shutterstock_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure OAuth2 access token for authorization: customer_accessCode
+configuration = shutterstock_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = shutterstock_api.ImagesApi(shutterstock_api.ApiClient(configuration))
+type = ['type_example'] # list[str] | Show images that were added, deleted, or edited; by default, the endpoint returns images that were updated in any of these ways (optional)
+start_date = '2013-10-20' # date | Show images updated on or after the specified date, in the format YYYY-MM-DD (optional)
+end_date = '2013-10-20' # date | Show images updated before the specified date, in the format YYYY-MM-DD (optional)
+interval = '1 HOUR' # str | Show images updated in the specified time period, where the time period is an interval (like SQL INTERVAL) such as 1 DAY, 6 HOUR, or 30 MINUTE; the default is 1 HOUR, which shows images that were updated in the hour preceding the request (optional) (default to 1 HOUR)
+page = 1 # int | Page number (optional) (default to 1)
+per_page = 100 # int | Number of results per page, defaults to 100 (optional) (default to 100)
+sort = 'newest' # str | Sort order (optional) (default to newest)
+
+try:
+    # List updated images
+    api_response = api_instance.get_updated_images(type=type, start_date=start_date, end_date=end_date, interval=interval, page=page, per_page=per_page, sort=sort)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ImagesApi->get_updated_images: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | [**list[str]**](str.md)| Show images that were added, deleted, or edited; by default, the endpoint returns images that were updated in any of these ways | [optional] 
+ **start_date** | **date**| Show images updated on or after the specified date, in the format YYYY-MM-DD | [optional] 
+ **end_date** | **date**| Show images updated before the specified date, in the format YYYY-MM-DD | [optional] 
+ **interval** | **str**| Show images updated in the specified time period, where the time period is an interval (like SQL INTERVAL) such as 1 DAY, 6 HOUR, or 30 MINUTE; the default is 1 HOUR, which shows images that were updated in the hour preceding the request | [optional] [default to 1 HOUR]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **per_page** | **int**| Number of results per page, defaults to 100 | [optional] [default to 100]
+ **sort** | **str**| Sort order | [optional] [default to newest]
+
+### Return type
+
+[**UpdatedMediaDataList**](UpdatedMediaDataList.md)
 
 ### Authorization
 
