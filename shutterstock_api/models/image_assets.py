@@ -34,6 +34,7 @@ class ImageAssets(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'huge_thumb': 'Thumbnail',
         'huge_jpg': 'ImageSizeDetails',
         'huge_tiff': 'ImageSizeDetails',
         'large_thumb': 'Thumbnail',
@@ -49,6 +50,7 @@ class ImageAssets(object):
     }
 
     attribute_map = {
+        'huge_thumb': 'huge_thumb',
         'huge_jpg': 'huge_jpg',
         'huge_tiff': 'huge_tiff',
         'large_thumb': 'large_thumb',
@@ -63,9 +65,10 @@ class ImageAssets(object):
         'vector_eps': 'vector_eps'
     }
 
-    def __init__(self, huge_jpg=None, huge_tiff=None, large_thumb=None, medium_jpg=None, preview=None, preview_1000=None, preview_1500=None, small_jpg=None, small_thumb=None, supersize_jpg=None, supersize_tiff=None, vector_eps=None):  # noqa: E501
+    def __init__(self, huge_thumb=None, huge_jpg=None, huge_tiff=None, large_thumb=None, medium_jpg=None, preview=None, preview_1000=None, preview_1500=None, small_jpg=None, small_thumb=None, supersize_jpg=None, supersize_tiff=None, vector_eps=None):  # noqa: E501
         """ImageAssets - a model defined in Swagger"""  # noqa: E501
 
+        self._huge_thumb = None
         self._huge_jpg = None
         self._huge_tiff = None
         self._large_thumb = None
@@ -80,6 +83,8 @@ class ImageAssets(object):
         self._vector_eps = None
         self.discriminator = None
 
+        if huge_thumb is not None:
+            self.huge_thumb = huge_thumb
         if huge_jpg is not None:
             self.huge_jpg = huge_jpg
         if huge_tiff is not None:
@@ -104,6 +109,27 @@ class ImageAssets(object):
             self.supersize_tiff = supersize_tiff
         if vector_eps is not None:
             self.vector_eps = vector_eps
+
+    @property
+    def huge_thumb(self):
+        """Gets the huge_thumb of this ImageAssets.  # noqa: E501
+
+
+        :return: The huge_thumb of this ImageAssets.  # noqa: E501
+        :rtype: Thumbnail
+        """
+        return self._huge_thumb
+
+    @huge_thumb.setter
+    def huge_thumb(self, huge_thumb):
+        """Sets the huge_thumb of this ImageAssets.
+
+
+        :param huge_thumb: The huge_thumb of this ImageAssets.  # noqa: E501
+        :type: Thumbnail
+        """
+
+        self._huge_thumb = huge_thumb
 
     @property
     def huge_jpg(self):

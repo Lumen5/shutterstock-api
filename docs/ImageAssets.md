@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**huge_thumb** | [**Thumbnail**](Thumbnail.md) |  | [optional] 
 **huge_jpg** | [**ImageSizeDetails**](ImageSizeDetails.md) |  | [optional] 
 **huge_tiff** | [**ImageSizeDetails**](ImageSizeDetails.md) |  | [optional] 
 **large_thumb** | [**Thumbnail**](Thumbnail.md) |  | [optional] 
