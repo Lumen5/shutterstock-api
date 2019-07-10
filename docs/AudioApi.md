@@ -10,6 +10,9 @@ Method | HTTP request | Description
 [**delete_soundbox_items**](AudioApi.md#delete_soundbox_items) | **DELETE** /v2/audio/collections/{id}/items | Remove audio tracks from collections
 [**download_tracks**](AudioApi.md#download_tracks) | **POST** /v2/audio/licenses/{id}/downloads | Download audio tracks
 [**get_audio_license_list**](AudioApi.md#get_audio_license_list) | **GET** /v2/audio/licenses | List audio licenses
+[**get_genres**](AudioApi.md#get_genres) | **GET** /v2/audio/genres | List audio genres
+[**get_instruments**](AudioApi.md#get_instruments) | **GET** /v2/audio/instruments | List audio instruments
+[**get_moods**](AudioApi.md#get_moods) | **GET** /v2/audio/moods | List audio moods
 [**get_soundbox**](AudioApi.md#get_soundbox) | **GET** /v2/audio/collections/{id} | Get the details of audio collections
 [**get_soundbox_items**](AudioApi.md#get_soundbox_items) | **GET** /v2/audio/collections/{id}/items | Get the contents of audio collections
 [**get_soundbox_list**](AudioApi.md#get_soundbox_list) | **GET** /v2/audio/collections | List audio collections
@@ -78,7 +81,7 @@ void (empty response body)
 
 Create audio collections
 
-This endpoint creates one or more collections (soundboxes). To add tracks, use `POST /audio/collections/{id}/items`.
+This endpoint creates one or more collections (soundboxes). To add tracks, use `POST /v2/audio/collections/{id}/items`.
 
 ### Example
 ```python
@@ -333,12 +336,168 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_genres**
+> GenreList get_genres()
+
+List audio genres
+
+This endpoint returns a list of all audio genres.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import shutterstock_api
+from shutterstock_api.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basic
+configuration = shutterstock_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure OAuth2 access token for authorization: customer_accessCode
+configuration = shutterstock_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = shutterstock_api.AudioApi(shutterstock_api.ApiClient(configuration))
+
+try:
+    # List audio genres
+    api_response = api_instance.get_genres()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AudioApi->get_genres: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GenreList**](GenreList.md)
+
+### Authorization
+
+[basic](../README.md#basic), [customer_accessCode](../README.md#customer_accessCode)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_instruments**
+> InstrumentList get_instruments()
+
+List audio instruments
+
+This endpoint returns a list of all audio instruments.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import shutterstock_api
+from shutterstock_api.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basic
+configuration = shutterstock_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure OAuth2 access token for authorization: customer_accessCode
+configuration = shutterstock_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = shutterstock_api.AudioApi(shutterstock_api.ApiClient(configuration))
+
+try:
+    # List audio instruments
+    api_response = api_instance.get_instruments()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AudioApi->get_instruments: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InstrumentList**](InstrumentList.md)
+
+### Authorization
+
+[basic](../README.md#basic), [customer_accessCode](../README.md#customer_accessCode)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_moods**
+> MoodList get_moods()
+
+List audio moods
+
+This endpoint returns a list of all audio moods.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import shutterstock_api
+from shutterstock_api.rest import ApiException
+from pprint import pprint
+
+# Configure HTTP basic authorization: basic
+configuration = shutterstock_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure OAuth2 access token for authorization: customer_accessCode
+configuration = shutterstock_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = shutterstock_api.AudioApi(shutterstock_api.ApiClient(configuration))
+
+try:
+    # List audio moods
+    api_response = api_instance.get_moods()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AudioApi->get_moods: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MoodList**](MoodList.md)
+
+### Authorization
+
+[basic](../README.md#basic), [customer_accessCode](../README.md#customer_accessCode)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_soundbox**
 > Collection get_soundbox(id)
 
 Get the details of audio collections
 
-This endpoint gets more detailed information about a collection, including the number of items in it and when it was last updated. To get the tracks in collections, use `GET /audio/collections/{id}/items`.
+This endpoint gets more detailed information about a collection, including the number of items in it and when it was last updated. To get the tracks in collections, use `GET /v2/audio/collections/{id}/items`.
 
 ### Example
 ```python
@@ -723,7 +882,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_audio**
-> AudioSearchResults search_audio(artists=artists, bpm=bpm, bpm_from=bpm_from, bpm_to=bpm_to, duration=duration, duration_from=duration_from, duration_to=duration_to, genre=genre, is_instrumental=is_instrumental, instruments=instruments, moods=moods, page=page, per_page=per_page, query=query, sort=sort, sort_order=sort_order, vocal_description=vocal_description, view=view)
+> AudioSearchResults search_audio(artists=artists, bpm=bpm, bpm_from=bpm_from, bpm_to=bpm_to, duration=duration, duration_from=duration_from, duration_to=duration_to, genre=genre, is_instrumental=is_instrumental, instruments=instruments, moods=moods, page=page, per_page=per_page, query=query, sort=sort, sort_order=sort_order, vocal_description=vocal_description, view=view, fields=fields, library=library, language=language)
 
 Search for tracks
 
@@ -754,10 +913,10 @@ bpm_to = 56 # int | Show tracks with the specified beats per minute or slower (o
 duration = 56 # int | Show tracks with the specified duration (seconds) (optional)
 duration_from = 56 # int | Show tracks with the specified duration or longer (seconds) (optional)
 duration_to = 56 # int | Show tracks with the specified duration or shorter (seconds) (optional)
-genre = ['[ \"Classical\", \"Holiday\" ]'] # list[str] | Show tracks with each of the specified genres (optional)
+genre = ['[ \"Classical\", \"Holiday\" ]'] # list[str] | Show tracks with each of the specified genres; to get the list of genres, use `GET /v2/audio/genres` (optional)
 is_instrumental = true # bool | Show instrumental music only (optional)
-instruments = ['[ \"Trumpet\", \"Percussion\" ]'] # list[str] | Show tracks with each of the specified instruments (optional)
-moods = ['[ \"Confident\", \"Playful\" ]'] # list[str] | Show tracks with each of the specified moods (optional)
+instruments = ['[ \"Trumpet\", \"Percussion\" ]'] # list[str] | Show tracks with each of the specified instruments; to get the list of instruments, use `GET /v2/audio/instruments` (optional)
+moods = ['[ \"Confident\", \"Playful\" ]'] # list[str] | Show tracks with each of the specified moods; to get the list of moods, use `GET /v2/audio/moods` (optional)
 page = 1 # int | Page number (optional) (default to 1)
 per_page = 20 # int | Number of results per page (optional) (default to 20)
 query = '\"drum\"' # str | One or more search terms separated by spaces (optional)
@@ -765,10 +924,13 @@ sort = 'sort_example' # str | Sort by (optional)
 sort_order = 'desc' # str | Sort order, asc or desc (optional) (default to desc)
 vocal_description = 'vocal_description_example' # str | Show tracks with the specified vocal description (male, female) (optional)
 view = 'minimal' # str | Amount of detail to render in the response (optional) (default to minimal)
+fields = 'fields_example' # str | Fields to display in the response; see the documentation for the fields parameter in the overview section (optional)
+library = 'premier' # str | Which library to search (optional) (default to premier)
+language = 'language_example' # str | Which language to search in (optional)
 
 try:
     # Search for tracks
-    api_response = api_instance.search_audio(artists=artists, bpm=bpm, bpm_from=bpm_from, bpm_to=bpm_to, duration=duration, duration_from=duration_from, duration_to=duration_to, genre=genre, is_instrumental=is_instrumental, instruments=instruments, moods=moods, page=page, per_page=per_page, query=query, sort=sort, sort_order=sort_order, vocal_description=vocal_description, view=view)
+    api_response = api_instance.search_audio(artists=artists, bpm=bpm, bpm_from=bpm_from, bpm_to=bpm_to, duration=duration, duration_from=duration_from, duration_to=duration_to, genre=genre, is_instrumental=is_instrumental, instruments=instruments, moods=moods, page=page, per_page=per_page, query=query, sort=sort, sort_order=sort_order, vocal_description=vocal_description, view=view, fields=fields, library=library, language=language)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AudioApi->search_audio: %s\n" % e)
@@ -785,10 +947,10 @@ Name | Type | Description  | Notes
  **duration** | **int**| Show tracks with the specified duration (seconds) | [optional] 
  **duration_from** | **int**| Show tracks with the specified duration or longer (seconds) | [optional] 
  **duration_to** | **int**| Show tracks with the specified duration or shorter (seconds) | [optional] 
- **genre** | [**list[str]**](str.md)| Show tracks with each of the specified genres | [optional] 
+ **genre** | [**list[str]**](str.md)| Show tracks with each of the specified genres; to get the list of genres, use &#x60;GET /v2/audio/genres&#x60; | [optional] 
  **is_instrumental** | **bool**| Show instrumental music only | [optional] 
- **instruments** | [**list[str]**](str.md)| Show tracks with each of the specified instruments | [optional] 
- **moods** | [**list[str]**](str.md)| Show tracks with each of the specified moods | [optional] 
+ **instruments** | [**list[str]**](str.md)| Show tracks with each of the specified instruments; to get the list of instruments, use &#x60;GET /v2/audio/instruments&#x60; | [optional] 
+ **moods** | [**list[str]**](str.md)| Show tracks with each of the specified moods; to get the list of moods, use &#x60;GET /v2/audio/moods&#x60; | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **per_page** | **int**| Number of results per page | [optional] [default to 20]
  **query** | **str**| One or more search terms separated by spaces | [optional] 
@@ -796,6 +958,9 @@ Name | Type | Description  | Notes
  **sort_order** | **str**| Sort order, asc or desc | [optional] [default to desc]
  **vocal_description** | **str**| Show tracks with the specified vocal description (male, female) | [optional] 
  **view** | **str**| Amount of detail to render in the response | [optional] [default to minimal]
+ **fields** | **str**| Fields to display in the response; see the documentation for the fields parameter in the overview section | [optional] 
+ **library** | **str**| Which library to search | [optional] [default to premier]
+ **language** | **str**| Which language to search in | [optional] 
 
 ### Return type
 

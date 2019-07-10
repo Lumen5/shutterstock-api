@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+tox = "*"
+flake8 = "*"
+yamllint = "*"
+bumpversion = "*"
+
+[packages]
+bumpversion = "*"
+shutterstock-api = {git = "https://github.com/Lumen5/shutterstock-api.git",ref = "v0.2.0"}
+
+[requires]
+python_version = "2.7"

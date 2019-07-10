@@ -86,7 +86,7 @@ void (empty response body)
 
 Create image collections
 
-This endpoint creates one or more image collections (lightboxes). To add images to the collections, use `POST /images/collections/{id}/items`.
+This endpoint creates one or more image collections (lightboxes). To add images to the collections, use `POST /v2/images/collections/{id}/items`.
 
 ### Example
 ```python
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 Get the details of featured image collections
 
-This endpoint gets more detailed information about a featured collection, including its cover image and timestamps for its creation and most recent update. To get the images, use `GET /images/collections/featured/{id}/items`.
+This endpoint gets more detailed information about a featured collection, including its cover image and timestamps for its creation and most recent update. To get the images, use `GET /v2/images/collections/featured/{id}/items`.
 
 ### Example
 ```python
@@ -751,7 +751,7 @@ Name | Type | Description  | Notes
 
 Get the details of image collections
 
-This endpoint gets more detailed information about a collection, including its cover image and timestamps for its creation and most recent update. To get the images in collections, use `GET /images/collections/{id}/items`.
+This endpoint gets more detailed information about a collection, including its cover image and timestamps for its creation and most recent update. To get the images in collections, use `GET /v2/images/collections/{id}/items`.
 
 ### Example
 ```python
