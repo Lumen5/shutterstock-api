@@ -38,7 +38,7 @@ class LicenseRequestMetadata(object):
     }
 
     attribute_map = {
-        'customer_id': 'customer_id',
+        'customer_id': 'customer_ID',
         'geo_location': 'geo_location',
         'number_viewed': 'number_viewed',
         'search_term': 'search_term'
